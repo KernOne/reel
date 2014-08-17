@@ -20,7 +20,7 @@ module Reel
     finalizer :shutdown
 
     def initialize(server, options={}, &callback)
-      @spy      = STDOUT if options[:spy]
+      @spy      = STDOUT if options.is_a?(Hash) && options[:spy]
       @options  = options
       @callback = callback
       @server   = server
